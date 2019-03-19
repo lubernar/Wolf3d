@@ -6,7 +6,7 @@
 /*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 13:38:14 by lubernar          #+#    #+#             */
-/*   Updated: 2019/03/19 11:56:31 by lubernar         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:17:11 by lubernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int		valid_map(t_param *d)
 	int	j;
 
 	i = 0;
-	d->xmax < 3 ? error("Invalid map.\n") : 0;
 	d->ypos > d->xmax ? error("Invalid map.\n") : 0;
 	d->xpos > d->ymax ? error("Invalid map.\n") : 0;
 	while (i < d->ymax)

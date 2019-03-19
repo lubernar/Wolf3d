@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 11:48:45 by lubernar          #+#    #+#             */
-/*   Updated: 2019/03/18 11:12:42 by jdelpuec         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:17:18 by lubernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ int		main(int ac, char **av)
 	d.ymax = count_lines(fd, av);
 	read_map(fd, d.ymax, &d);
 	d.xmax = xmax(d.tab);
+	d.xmax < 3 ? error("Invalid map.\n") : 0;
 	valid_map(&d) == 0 ? error("Invalid map.\n") : 0;
 	initialize_mlx(&d);
 	mlx_hook(d.win, 2, 0, key_press, &d);
