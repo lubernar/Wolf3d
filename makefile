@@ -6,7 +6,7 @@
 #    By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/30 11:26:39 by lubernar          #+#    #+#              #
-#    Updated: 2019/03/19 15:13:47 by lubernar         ###   ########.fr        #
+#    Updated: 2019/03/19 15:38:18 by lubernar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ SRC_NAME = init_map.c initialize.c read_map.c ray.c wolf.c textures.c tools.c va
 OBJ_PATH = obj
 
 CPPFLAGS = -Iincludes
+
+INC = includes/wolf.h
 
 LDFLAGS = -Llibft
 LDLIBS = -lft
@@ -46,10 +48,10 @@ $(OBJ_PATH)/%.o:$(SRC_PATH)/%.c
 	@mkdir -p $(OBJ_PATH) 2> /dev/null 
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(INC)
 	$(MAKE) -C libft
 	$(MAKE) -C minilibx_macos
-	$(CC) $(LDFLAGS) $(LDLIBS) $^ -o $@ $(MLXFLAGS) $(MLXLIBS) -framework OpenGL -framework AppKit
+	$(CC) $(LDFLAGS) $(LDLIBS) $(OBJ) -o $@ $(MLXFLAGS) $(MLXLIBS) -framework OpenGL -framework AppKit
 	echo "$(GREEN)[✓] Wolf3D"
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 10:50:15 by lubernar          #+#    #+#             */
-/*   Updated: 2019/03/18 14:03:59 by lubernar         ###   ########.fr       */
+/*   Updated: 2019/03/19 15:25:52 by lubernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	initialize_d(t_param *d)
 	d->ydir = 0.0;
 	d->xplane = 0.0;
 	d->yplane = 0.6;
-	d->w = 600;
-	d->h = 600;
+	d->w = 700;
+	d->h = 700;
 	d->tex_w = 480;
 	d->tex_h = 480;
 	d->time = 0;
