@@ -6,7 +6,7 @@
 /*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 13:58:37 by jdelpuec          #+#    #+#             */
-/*   Updated: 2019/03/25 14:37:20 by jdelpuec         ###   ########.fr       */
+/*   Updated: 2019/03/25 14:47:47 by jdelpuec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	ft_free(t_param *d, int nb)
 	int	i;
 
 	i = 0;
-	ft_putnbr(nb);
 	if (nb == 1)
 	{
 		free(d->textures);
