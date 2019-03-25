@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 10:55:34 by jdelpuec          #+#    #+#             */
-/*   Updated: 2019/03/19 11:37:32 by lubernar         ###   ########.fr       */
+/*   Updated: 2019/03/25 14:27:00 by jdelpuec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,4 +136,5 @@ void				choose_str(t_param *d);
 void				choose_music(t_param *d);
 void				checkpath(char *s);
 void				initialize_xpm(t_param *d);
+void				ft_free(t_param *d, int nb);
 #endif

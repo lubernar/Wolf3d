@@ -6,7 +6,7 @@
 /*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 11:48:45 by lubernar          #+#    #+#             */
-/*   Updated: 2019/03/18 11:12:42 by jdelpuec         ###   ########.fr       */
+/*   Updated: 2019/03/19 16:25:52 by jdelpuec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,11 @@ int		main(int ac, char **av)
 	signal(2, quit);
 	initialize_d(&d);
 	fd = open(av[1], O_NOFOLLOW | O_RDONLY);
-	fd == -1 ? error("Open error.\n") : fd;
+	fd == -1 ? ft_free(&d, 1) : fd;
 	d.ymax = count_lines(fd, av);
 	read_map(fd, d.ymax, &d);
 	d.xmax = xmax(d.tab);
-	valid_map(&d) == 0 ? error("Invalid map.\n") : 0;
+	valid_map(&d) == 0 ? ft_free(&d, 5) : 0;
 	initialize_mlx(&d);
 	mlx_hook(d.win, 2, 0, key_press, &d);
 	mlx_hook(d.win, 3, 0, key_release, &d);

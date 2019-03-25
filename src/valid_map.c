@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 13:38:14 by lubernar          #+#    #+#             */
-/*   Updated: 2019/03/19 11:56:31 by lubernar         ###   ########.fr       */
+/*   Updated: 2019/03/19 16:25:48 by jdelpuec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int		valid_map(t_param *d)
 	int	j;
 
 	i = 0;
-	d->xmax < 3 ? error("Invalid map.\n") : 0;
-	d->ypos > d->xmax ? error("Invalid map.\n") : 0;
-	d->xpos > d->ymax ? error("Invalid map.\n") : 0;
+	d->xmax < 3 ? ft_free(d, 5) : 0;
+	d->ypos > d->xmax ? ft_free(d, 5) : 0;
+	d->xpos > d->ymax ? ft_free(d, 5) : 0;
 	while (i < d->ymax)
 	{
 		j = 0;

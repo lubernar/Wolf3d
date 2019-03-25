@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 10:50:15 by lubernar          #+#    #+#             */
-/*   Updated: 2019/03/18 14:03:59 by lubernar         ###   ########.fr       */
+/*   Updated: 2019/03/25 14:27:24 by jdelpuec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	initialize_d(t_param *d)
 	d->d_map = 0;
 	d->choose_m = 0;
 	d->choose_text = 0;
-	d->textures = (char**)malloc(sizeof(char*) * 6);
+	if (!(d->textures = (char**)malloc(sizeof(char*) * 6)))
+		error("Malloc error.\n");
 }
 
 void	initialize_textures(t_param *d)
@@ -124,7 +125,7 @@ void	initialize_mlx(t_param *d)
 		&(d->end));
 	if (!(d->map_text = mlx_xpm_file_to_image(d->mlx, "textures/arbres.xpm",
 	&d->lon, &d->lar)))
-		error("Texture missing.\n");
+		ft_free(d, 5);
 	d->map_addr2 = (int *)mlx_get_data_addr(d->map_text, &(d->bpp), &(d->s_l),
 		&(d->end));
 	choose_str(d);

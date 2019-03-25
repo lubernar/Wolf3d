@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 17:32:41 by lubernar          #+#    #+#             */
-/*   Updated: 2019/03/19 11:44:19 by lubernar         ###   ########.fr       */
+/*   Updated: 2019/03/19 16:03:03 by jdelpuec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int		count_words(char **str, t_param *d)
 	while (str[i])
 	{
 		if (!ft_isdigit(*str[i]) && *str[i] != 'X')
-			error("Invalid file.\n");
+			ft_free(d, 2);
 		if (*str[i] == 'X')
 		{
 			if (d->xpos != 0)
-				error("Too many player spawns.\n");
+				ft_free(d, 4);
 			d->xpos = j + 0.5;
 			d->ypos = i + 0.5;
 		}
@@ -33,7 +33,7 @@ int		count_words(char **str, t_param *d)
 	}
 	j++;
 	if (j == d->ymax && d->xpos == 0)
-		error("Spawn not initialized.\n");
+		ft_free(d, 4);
 	return (i);
 }
 
@@ -109,8 +109,8 @@ void	read_map(const int fd, int ymax, t_param *d)
 			str = ft_strsplit(line, ' ');
 		if (!(d->tab[d->ytab] = malloc(sizeof(int) * (count_words(str, d)
 		+ 1))))
-			return ;
+			ft_free(d, 3);
 		istrue = str_to_tab(d, str, line, d->xtab);
 	}
-	!istrue ? error("Invalid file.\n") : d->tab[0];
+	!istrue ? ft_free(d, 2) : 0;
 }
