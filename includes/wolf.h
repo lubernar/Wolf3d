@@ -6,7 +6,7 @@
 /*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 10:55:34 by jdelpuec          #+#    #+#             */
-/*   Updated: 2019/03/25 14:45:14 by jdelpuec         ###   ########.fr       */
+/*   Updated: 2019/03/25 15:11:16 by jdelpuec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "get_next_line.h"
 # include <time.h>
 # include <signal.h>
+
 # include <stdio.h>
 
 typedef	struct		s_param

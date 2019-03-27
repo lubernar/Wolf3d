@@ -6,7 +6,7 @@
 /*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 10:50:15 by lubernar          #+#    #+#             */
-/*   Updated: 2019/03/25 14:27:24 by jdelpuec         ###   ########.fr       */
+/*   Updated: 2019/03/25 15:52:42 by jdelpuec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	choose_str2(t_param *d)
 		d->textures[4] = "textures/ice.xpm";
 		d->textures[5] = "textures/skystars.xpm";
 	}
-	choose_music(d);
+	//choose_music(d);
 	initialize_textures(d);
 }
 
@@ -98,7 +98,7 @@ void	choose_str(t_param *d)
 		d->textures[4] = "textures/feuilles.xpm";
 		d->textures[5] = "textures/ciel.xpm";
 	}
-	choose_music(d);
+	// choose_music(d);
 	if (d->choose_text == 1)
 	{
 		system("killall afplay > /dev/null 2>&1");

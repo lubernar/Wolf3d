@@ -6,7 +6,7 @@
 /*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 11:48:45 by lubernar          #+#    #+#             */
-/*   Updated: 2019/03/25 14:46:10 by jdelpuec         ###   ########.fr       */
+/*   Updated: 2019/03/25 15:13:57 by jdelpuec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int		player_move(t_param *d)
 	: 0;
 	mlx_string_put(d->mlx, d->win, 10, 10, 16777215, d->tmp);
 	free(d->tmp);
-	if (system("killall -s afplay > /dev/null 2>&1") == 256)
-		choose_music(d);
+	// if (system("killall -s afplay > /dev/null 2>&1") == 256)
+	// 	choose_music(d);
 	return (0);
 }
 
@@ -84,6 +84,13 @@ int		ft_exit(t_param *d)
 	mlx_destroy_window(d->mlx, d->win);
 	system("killall afplay > /dev/null 2>&1");
 	exit(0);
+	return (0);
+}
+
+int		mouse_scope(int x, int y, t_param *d)
+{
+	if (x < d->w && x > 0 && y < d->h && y > 0)
+		printf("x = %d ; y = %d \n", x, y);
 	return (0);
 }
 
@@ -107,6 +114,7 @@ int		main(int ac, char **av)
 	mlx_hook(d.win, 3, 0, key_release, &d);
 	mlx_loop_hook(d.mlx, player_move, &d);
 	mlx_hook(d.win, 17, 1L, ft_exit, &d);
+	mlx_hook(d.win, 6, 0, mouse_scope, &d);
 	mlx_loop(d.mlx);
 	return (0);
 }
