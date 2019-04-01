@@ -6,7 +6,7 @@
 #    By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/30 11:26:39 by lubernar          #+#    #+#              #
-#    Updated: 2019/03/19 15:38:18 by lubernar         ###   ########.fr        #
+#    Updated: 2019/04/01 14:09:42 by lubernar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ $(OBJ_PATH)/%.o:$(SRC_PATH)/%.c
 $(NAME): $(OBJ) $(INC)
 	$(MAKE) -C libft
 	$(MAKE) -C minilibx_macos
-	$(CC) $(LDFLAGS) $(LDLIBS) $(OBJ) -o $@ $(MLXFLAGS) $(MLXLIBS) -framework OpenGL -framework AppKit
+	$(CC) $(LDFLAGS) $(LDLIBS) $(OBJ) -g -fsanitize=address -o $@ $(MLXFLAGS) $(MLXLIBS) -framework OpenGL -framework AppKit
 	echo "$(GREEN)[✓] Wolf3D"
 
 clean:
