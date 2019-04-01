@@ -6,18 +6,14 @@
 /*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 13:38:14 by lubernar          #+#    #+#             */
-/*   Updated: 2019/03/25 14:45:11 by jdelpuec         ###   ########.fr       */
+/*   Updated: 2019/04/01 13:54:08 by jdelpuec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
 
-int		valid_map(t_param *d)
+int		valid_map(t_param *d, int i, int j)
 {
-	int	i;
-	int	j;
-
-	i = 0;
 	d->xmax < 3 ? ft_free(d, 5) : 0;
 	d->ypos > d->xmax ? ft_free(d, 5) : 0;
 	d->xpos > d->ymax ? ft_free(d, 5) : 0;

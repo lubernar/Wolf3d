@@ -6,7 +6,7 @@
 /*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 10:55:34 by jdelpuec          #+#    #+#             */
-/*   Updated: 2019/03/27 12:26:18 by jdelpuec         ###   ########.fr       */
+/*   Updated: 2019/04/01 13:54:56 by jdelpuec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ typedef	struct		s_param
 int					count_lines(int fd, char **av);
 void				read_map(const int fd, int ymax, t_param *d);
 int					xmax(int **tab);
-int					valid_map(t_param *d);
+int					valid_map(t_param *d, int i, int j);
 void				ray(t_param *d);
 int					move(t_param *d);
 void				initialize_d(t_param *d);
