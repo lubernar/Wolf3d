@@ -3,14 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 13:58:37 by jdelpuec          #+#    #+#             */
-/*   Updated: 2019/03/18 14:04:32 by lubernar         ###   ########.fr       */
+/*   Updated: 2019/03/25 14:47:47 by jdelpuec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
+
+void	ft_free2(t_param *d, int nb, int i)
+{
+	if (nb == 4)
+	{
+		free(d->textures);
+		d->xpos != 0 ? error("Too many player spawns.\n") : 0;
+		d->xpos == 0 ? error("Spawn not initialized.\n") : 0;
+	}
+	if (nb == 5)
+	{
+		free(d->textures);
+		i = 0;
+		while (i < d->ymax)
+			free(d->tab[i++]);
+		free(d->tab);
+		error("Invalid map.\n");
+	}
+}
+
+void	ft_free(t_param *d, int nb)
+{
+	int	i;
+
+	i = 0;
+	if (nb == 1)
+	{
+		free(d->textures);
+		error("Open error.\n");
+	}
+	if (nb == 2)
+	{
+		free(d->textures);
+		error("Invalid file.\n");
+	}
+	if (nb == 3)
+	{
+		free(d->textures);
+		error("Malloc error.\n");
+	}
+	ft_free2(d, nb, i);
+}
 
 void	quit(int err)
 {
