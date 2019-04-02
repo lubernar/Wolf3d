@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   textures.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 12:09:16 by lubernar          #+#    #+#             */
-/*   Updated: 2019/03/18 10:46:03 by lubernar         ###   ########.fr       */
+/*   Updated: 2019/04/02 17:32:48 by jdelpuec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,21 @@
 void	draw_textures(t_param *d, int y, int x)
 {
 	d->tex_y = (y * 2 - d->h + d->line) * (d->tex_h / 2) / d->line;
-	if (d->side == 0 && d->ray_dirx > 0)
+	if (d->side == 0 && d->ray_dirx > 0 && d->tex_x < d->size[0] && d->tex_y < d->size[0])
 		d->addr[y * d->w + x] = d->walls_addr[0][d->tex_y * d->size[0]
 		+ d->tex_x];
-	else if (d->side == 0 && d->ray_dirx < 0)
+	else if (d->side == 0 && d->ray_dirx < 0 && d->tex_x < d->size[2] && d->tex_y < d->size[2])
 		d->addr[y * d->w + x] = d->walls_addr[1][d->tex_y * d->size[2]
 		+ d->tex_x];
-	else if (d->side == 1 && d->ray_diry > 0)
+	else if (d->side == 1 && d->ray_diry > 0 && d->tex_x < d->size[4] && d->tex_y < d->size[4])
 		d->addr[y * d->w + x] = d->walls_addr[2][d->tex_y * d->size[4]
 		+ d->tex_x];
 	else
-		d->addr[y * d->w + x] = d->walls_addr[3][d->tex_y * d->size[6]
-		+ d->tex_x];
+	{
+		if (d->tex_x < d->size[6] && d->tex_y < d->size[6])
+			d->addr[y * d->w + x] = d->walls_addr[3][d->tex_y * d->size[6]
+			+ d->tex_x];
+	}
 }
 
 void	wall_textures(t_param *d, int y, int x)
