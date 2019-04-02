@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 17:32:41 by lubernar          #+#    #+#             */
-/*   Updated: 2019/03/25 14:45:12 by jdelpuec         ###   ########.fr       */
+/*   Updated: 2019/04/02 17:08:19 by lubernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		count_lines(int fd, char **av)
 
 	fd = open(av[1], O_RDONLY);
 	ymax = 0;
-	while (get_next_line(fd, &line))
+	while (get_next_line(fd, &line) > 0)
 	{
 		ymax++;
 		free(line);
@@ -99,7 +99,7 @@ void	read_map(const int fd, int ymax, t_param *d)
 	istrue = 0;
 	if ((d->tab = (int**)malloc(sizeof(int*) * (ymax + 1))) == NULL)
 		return ;
-	while (get_next_line(fd, &line))
+	while (get_next_line(fd, &line) > 0)
 	{
 		d->xtab = 0;
 		while (!ft_isdigit(line[j]) && line[j])
