@@ -6,7 +6,7 @@
 /*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 10:50:15 by lubernar          #+#    #+#             */
-/*   Updated: 2019/04/01 14:16:23 by lubernar         ###   ########.fr       */
+/*   Updated: 2019/04/10 13:14:50 by lubernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ void	initialize_textures(t_param *d)
 {
 	initialize_xpm(d);
 	d->walls_addr[0] = (int *)mlx_get_data_addr(d->walls_text[0], &(d->bpp),
-		&d->s_l, &d->end);
+		&d->size_l[0], &d->end);
 	d->walls_addr[1] = (int *)mlx_get_data_addr(d->walls_text[1], &(d->bpp),
-		&d->s_l, &d->end);
+		&d->size_l[1], &d->end);
 	d->walls_addr[2] = (int *)mlx_get_data_addr(d->walls_text[2], &(d->bpp),
-		&d->s_l, &d->end);
+		&d->size_l[2], &d->end);
 	d->walls_addr[3] = (int *)mlx_get_data_addr(d->walls_text[3], &(d->bpp),
-		&(d->s_l), &(d->end));
+		&(d->size_l[3]), &(d->end));
 	d->floor_addr = (int *)mlx_get_data_addr(d->floor_te, &(d->bpp), &(d->s_l),
 		&(d->end));
 	d->ceiling_addr = (int *)mlx_get_data_addr(d->ceiling_te, &(d->bpp),
@@ -115,12 +115,16 @@ void	choose_str(t_param *d)
 
 void	initialize_mlx(t_param *d)
 {
-	d->mlx = mlx_init();
-	d->win = mlx_new_window(d->mlx, d->w, d->h, "Wolf3D");
-	d->img = mlx_new_image(d->mlx, d->w, d->h);
+	if (!(d->mlx = mlx_init()))
+		ft_free(d, 6);
+	if (!(d->win = mlx_new_window(d->mlx, d->w, d->h, "Wolf3D")))
+		ft_free(d, 6);
+	if (!(d->img = mlx_new_image(d->mlx, d->w, d->h)))
+		ft_free(d, 6);
 	d->addr = (int *)mlx_get_data_addr(d->img, &(d->bpp), &(d->s_l),
 		&(d->end));
-	d->map = mlx_new_image(d->mlx, 4 * d->xmax, 4 * d->ymax);
+	if (!(d->map = mlx_new_image(d->mlx, 4 * d->xmax, 4 * d->ymax)))
+		ft_free(d, 6);
 	d->map_addr = (int *)mlx_get_data_addr(d->map, &(d->bpp), &(d->s_l),
 		&(d->end));
 	if (!(d->map_text = mlx_xpm_file_to_image(d->mlx, "textures/arbres.xpm",

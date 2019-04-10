@@ -6,7 +6,7 @@
 /*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/08 12:09:16 by lubernar          #+#    #+#             */
-/*   Updated: 2019/03/18 10:46:03 by lubernar         ###   ########.fr       */
+/*   Updated: 2019/04/10 13:24:47 by lubernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	draw_textures(t_param *d, int y, int x)
 {
 	d->tex_y = (y * 2 - d->h + d->line) * (d->tex_h / 2) / d->line;
 	if (d->side == 0 && d->ray_dirx > 0)
-		d->addr[y * d->w + x] = d->walls_addr[0][d->tex_y * d->size[0]
+		d->addr[y * d->w + x] = d->walls_addr[0][d->tex_y * d->size_l[0] / 4
 		+ d->tex_x];
 	else if (d->side == 0 && d->ray_dirx < 0)
-		d->addr[y * d->w + x] = d->walls_addr[1][d->tex_y * d->size[2]
+		d->addr[y * d->w + x] = d->walls_addr[1][d->tex_y * d->size_l[1] / 4
 		+ d->tex_x];
 	else if (d->side == 1 && d->ray_diry > 0)
-		d->addr[y * d->w + x] = d->walls_addr[2][d->tex_y * d->size[4]
+		d->addr[y * d->w + x] = d->walls_addr[2][d->tex_y * d->size_l[2] / 4
 		+ d->tex_x];
 	else
-		d->addr[y * d->w + x] = d->walls_addr[3][d->tex_y * d->size[6]
+		d->addr[y * d->w + x] = d->walls_addr[3][d->tex_y * d->size_l[3] / 4
 		+ d->tex_x];
 }
 

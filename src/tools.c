@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 13:58:37 by jdelpuec          #+#    #+#             */
-/*   Updated: 2019/03/25 14:47:47 by jdelpuec         ###   ########.fr       */
+/*   Updated: 2019/04/10 13:02:51 by lubernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
+#include <stdio.h>
 
 void	ft_free2(t_param *d, int nb, int i)
 {
@@ -28,6 +29,15 @@ void	ft_free2(t_param *d, int nb, int i)
 			free(d->tab[i++]);
 		free(d->tab);
 		error("Invalid map.\n");
+	}
+	if (nb == 6)
+	{
+		free(d->textures);
+		i = 0;
+		while (i < d->ymax)
+			free(d->tab[i++]);
+		free(d->tab);
+		error("MLX issues.\n");
 	}
 }
 

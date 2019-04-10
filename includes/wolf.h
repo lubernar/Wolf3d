@@ -6,7 +6,7 @@
 /*   By: lubernar <lubernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/05 10:55:34 by jdelpuec          #+#    #+#             */
-/*   Updated: 2019/04/01 14:16:23 by lubernar         ###   ########.fr       */
+/*   Updated: 2019/04/10 13:14:17 by lubernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef	struct		s_param
 	int				h;
 	int				bpp;
 	int				s_l;
+	int				size_l[4];
 	int				end;
 	int				*addr;
 	int				*walls_text[4];
@@ -80,7 +81,7 @@ typedef	struct		s_param
 	int				tex_w;
 	int				tex_h;
 	int				color;
-	int				size[7];
+	int				size[8];
 	double			wei;
 	int				hei;
 	double			floor_x;
