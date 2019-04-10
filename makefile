@@ -6,7 +6,7 @@
 #    By: jdelpuec <jdelpuec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/30 11:26:39 by lubernar          #+#    #+#              #
-#    Updated: 2019/04/10 16:19:07 by jdelpuec         ###   ########.fr        #
+#    Updated: 2019/04/10 16:35:09 by jdelpuec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJ_PATH = obj
 
 CPPFLAGS = -Iincludes
 
-INC = includes/wolf.h
+INC = includes/wolf.h includes/get_next_line.h
 
 LDFLAGS = -Llibft
 LDLIBS = -lft
